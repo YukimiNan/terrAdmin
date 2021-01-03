@@ -3,13 +3,13 @@ module.exports = {
   httpAddr: '0.0.0.0',
 
   // mac
-  // terrariaDir: './TerrariaServer/1411/Mac/Terraria Server.app/Contents/MacOS',
+  // terrariaDir: './TerrariaServer/1412/Mac/Terraria Server.app/Contents/Resources',
 
   // linux
-  terrariaDir: './TerrariaServer/1411/Linux',
+  terrariaDir: './TerrariaServer/1412/Linux',
 
   // windows
-  // terrariaDir: 'TerrariaServer/1411/Windows',
+  // terrariaDir: 'TerrariaServer/1412/Windows',
 
   // tshock
   // terrariaDir: './TerrariaServer/tshock',

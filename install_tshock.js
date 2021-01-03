@@ -1,8 +1,8 @@
 // terrAdmin 3-d party (Terraria [tm]) server installation script
 // (c) 2020 Alexnd
 
-var urlDist = 'https://github.com/Pryaxis/TShock/releases/download/v4.4.0-pre13/TShock4.4.0_Pre13_Terraria1.4.1.1.zip';
-var dest = 'TShock4.4.0_Pre13_Terraria1.4.1.1.zip';
+var urlDist = 'https://github.com/Pryaxis/TShock/releases/download/v4.4.0-pre15/TShock4.4.0_Pre15_Terraria1.4.1.2.zip';
+var dest = 'TShock4.4.0_Pre15_Terraria1.4.1.2.zip';
 var installDir = 'TerrariaServer/TShock';
 
 var fs = require('fs');

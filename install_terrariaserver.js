@@ -1,7 +1,7 @@
 // terrAdmin 3-d party (Terraria [tm]) server installation script
 // (c) 2020 Alexnd
 
-var urlDist = 'https://terraria.org/system/dedicated_servers/archives/000/000/041/original/terraria-server-1411.zip?1602713512';
+var urlDist = 'https://terraria.org/system/dedicated_servers/archives/000/000/042/original/terraria-server-1412.zip?1605039370';
 var dest = 'TerrariaServer.zip';
 var installDir = 'TerrariaServer';
 

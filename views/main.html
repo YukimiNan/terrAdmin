@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-6">
-      <div class="card mt-3 tab-card" style="min-width: 800px;">
+    <div class="col-md-12 col-xl-10 offset-xl-1">
+      <div class="card mt-3 tab-card">
         <div class="card-header tab-card-header">
           <div style="padding-bottom:8px">
             <h2 class="h3 d-inline-block">{{title}}</h2>
@@ -76,7 +76,7 @@
                 Start <i class="icon icon-start">&nbsp;</i>
               </a>
               <a href="#" class="btn btn-primary" id="a_stop" style="display:none">
-                Stop <i class="icon icon-stop">&nbsp;</i>
+                Save & Stop <i class="icon icon-stop">&nbsp;</i>
               </a>
             {{else}}
               <a href="#" class="btn btn-primary" id="a_start" style="display:none">
@@ -84,7 +84,7 @@
                 <i class="icon icon-start">&nbsp;</i>
               </a>
               <a href="#" class="btn btn-primary" id="a_stop">
-                Stop
+                Save & Stop
                 <i class="icon icon-stop">&nbsp;</i>
               </a>
             {{/if}}

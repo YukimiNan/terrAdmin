@@ -183,11 +183,7 @@ ex.get('/start', checkAuth, (req, res) => {
 
 ex.get('/stop', checkAuth, (req, res) => {
   if (tPs) {
-    // tPs.stdin.write('exit\r\n')
-    // tPs.stdin.end()
-    exitState = true
-    tPs.kill('SIGHUP')
-    // tPs.kill('SIGINT')
+    stopTerraria()
     res.send('Terraria server stopped.')
   } else {
     res.send('Terraria server not running.')
@@ -380,7 +376,7 @@ function spawnTerraria() {
   const exePath = path.relative(__dirname, path.join(__dirname, terrariaDir, terrariaExe))
   console.log('*exePath', exePath)
   const args = [
-    terrariaExe,
+    // terrariaExe,
     '-config',
     `./${configFile}`,
     '-logfile',
@@ -401,6 +397,7 @@ function spawnTerraria() {
   logTimestamp = ts.replace(/:/g, '-').replace(' ', '_') // 'YYYY-MM-DD_hh-mm-ss'
   // console.log('***', ts, logTimestamp)
   process.stdin.pipe(ch.stdin)
+  ch.stderr.pipe(process.stderr)
   ch.unref()
   ch.stdout.on('data', data => {
     const s = data.toString()
@@ -411,7 +408,7 @@ function spawnTerraria() {
     if (m) {
       authCode = m[1]
     }
-    console.log(s)
+    process.stdout.write(s) // no trailing newline
   })
   ch.on('close', code => {
     console.log(`${terrariaExe} exited with code ${code}`)
@@ -426,13 +423,25 @@ function spawnTerraria() {
   return ch
 }
 
+function stopTerraria() {
+  if (tPs) {
+    // \n will complete the input without having to use end()
+    tPs.stdin.write('exit\n')
+
+    // end() simply shuts down the input stream, causing terrariaserver.exe to crash as if it were killed
+    // tPs.stdin.end()
+
+    // kill() will cause the last few minutes of the gamesave to be lost
+    // tPs.kill('SIGHUP')
+    // tPs.kill('SIGINT')
+
+    exitState = true
+  }
+}
+
 function restartTerraria() {
   if (tPs) {
-    // tPs.stdin.write('exit\r\n')
-    // tPs.stdin.end()
-    exitState = true
-    tPs.kill('SIGHUP')
-    // tPs.kill('SIGINT')
+    stopTerraria()
     setTimeout(() => {
       tPs = spawnTerraria()
     }, 2000)

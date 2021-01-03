@@ -8,6 +8,7 @@ This application expose Terraria/tShock things to user allowing control game ser
 - Clone [this](https://github.com/alexnd/terrAdmin) repo
 - `npm install`
 - `npm run install-terraria-server` or `npm run install-tshock`
+- `npm run postinstall`
 - Review and make corrections to `config.js` and `server.cfg`, you may need to change *default credentials* (**admin**, **123456**), set ports, world file, etc
 - You should place existsing `.wld` files in `Worlds` directory or set configfile `autocreate` directive to generate new world
 
@@ -38,7 +39,7 @@ sudo apt install mono-runtime -y
 Crearte shell script `server.sh`:
 ```
 #!/bin/sh
-mono ./TerrariaServer/1411/Linux/TerrariaServer.exe -config ./server.cfg
+mono ./TerrariaServer/1412/Linux/TerrariaServer.exe -config ./server.cfg
 ```
 
 Add execute privilegies to script:
@@ -53,7 +54,7 @@ chmod +x ./server.sh
 Shell script `server.sh`
 ```
 #!/bin/sh
-mono ./TerrariaServer/1405/Mac/Terraria\ Server.app/Contents/MacOS/TerrariaServer.exe -config ./server.cfg
+mono ./TerrariaServer/1412/Mac/Terraria\ Server.app/Contents/Resources/TerrariaServer.exe -config ./server.cfg
 ```
 
 ### Windows
@@ -61,7 +62,7 @@ mono ./TerrariaServer/1405/Mac/Terraria\ Server.app/Contents/MacOS/TerrariaServe
 Create runnable `.bat` file with next content:
 
 ```
-TerrariaServer\1411\Windows\TerrariaServer.exe -config server.cfg
+TerrariaServer\1412\Windows\TerrariaServer.exe -config server.cfg
 ```
 
 ## Docker way (under construction)
